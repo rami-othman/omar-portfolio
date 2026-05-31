@@ -20,7 +20,10 @@ export function BookHero() {
           Architecture portfolio
         </p>
         <BrandImage
-          src="/brand/omar-name-with-logo.jpg"
+          sources={[
+            "/brand/omar-name-with-logo.png",
+            "/brand/omar-name-with-logo.jpg",
+          ]}
           alt="Omar architecture portfolio"
           fallback="OMAR"
           className="max-h-24 max-w-[90%] text-6xl text-paper sm:text-7xl"

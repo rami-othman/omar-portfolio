@@ -71,12 +71,98 @@ a {
   }
 
   .scroll-book-open-spread .paper-page {
-    min-height: min(43rem, calc(100vh - 7rem));
+    min-height: 0;
   }
 
   .scroll-book-cover {
     transform-style: preserve-3d;
     will-change: transform, opacity;
+  }
+
+  .book-reader-stage .paper-page {
+    min-height: 0;
+  }
+
+  .book-reader-spread,
+  .book-reader-left-page,
+  .book-reader-right-page,
+  .book-reader-page-face {
+    transform-style: preserve-3d;
+  }
+
+  .book-reader-left-page,
+  .book-reader-right-page {
+    will-change: transform, opacity;
+  }
+
+  .book-reader-right-page {
+    transform-origin: left center;
+    z-index: 20;
+  }
+
+  .book-reader-page-face {
+    backface-visibility: hidden;
+  }
+
+  .book-reader-page-back {
+    transform: rotateY(180deg);
+  }
+
+  .book-reader-page-back-inner {
+    border-left: 1px solid rgba(29, 29, 27, 0.14);
+    border-right: 1px solid rgba(29, 29, 27, 0.08);
+    background:
+      linear-gradient(90deg, rgba(29, 29, 27, 0.13), transparent 18%),
+      radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.28), transparent 38%),
+      #e6dfd2;
+  }
+
+  .book-reader-paper-edge {
+    background: rgba(29, 29, 27, 0.16);
+    box-shadow: -2px 0 rgba(255, 255, 255, 0.18);
+  }
+
+  .book-reader-turn-shadow {
+    background: linear-gradient(
+      90deg,
+      rgba(45, 39, 32, 0.28),
+      rgba(45, 39, 32, 0.09),
+      transparent
+    );
+  }
+
+  .book-reader-moving-spine {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(45, 39, 32, 0.22),
+      transparent
+    );
+    transform-origin: center center;
+  }
+
+  .book-reader-paper-stack {
+    border: 1px solid rgba(29, 29, 27, 0.09);
+    background:
+      repeating-linear-gradient(
+        0deg,
+        #eee8dc 0,
+        #eee8dc 1px,
+        #d8d0c3 1px,
+        #d8d0c3 2px
+      );
+    box-shadow: 0 7px 15px rgba(45, 39, 32, 0.08);
+  }
+
+  .book-reader-book {
+    position: relative;
+  }
+
+  .book-open-frame {
+    background: #f3efe5;
+    box-shadow:
+      0 18px 45px rgba(45, 39, 32, 0.11),
+      0 2px 0 rgba(255, 255, 255, 0.26);
   }
 
   .book-spread {

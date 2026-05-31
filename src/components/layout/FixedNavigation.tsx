@@ -1,13 +1,23 @@
+import type { NavigationId } from "./useActiveNavigation";
+import { useActiveNavigation } from "./useActiveNavigation";
+
 const navigation = [
-  { label: "Cover", href: "#cover" },
-  { label: "Contents", href: "#contents" },
-  { label: "Profile", href: "#profile" },
-  { label: "CV", href: "#cv" },
-  { label: "Works", href: "#works" },
-  { label: "Contact", href: "#contact" },
-];
+  { id: "cover", label: "Cover", href: "#cover" },
+  { id: "contents", label: "Contents", href: "#contents" },
+  { id: "profile", label: "Profile", href: "#profile" },
+  { id: "cv", label: "CV", href: "#cv" },
+  { id: "works", label: "Works", href: "#works" },
+  { id: "projects", label: "Projects", href: "#project-courtyard-house" },
+  { id: "contact", label: "Contact", href: "#contact" },
+] satisfies Array<{
+  id: NavigationId;
+  label: string;
+  href: string;
+}>;
 
 export function FixedNavigation() {
+  const activeId = useActiveNavigation();
+
   return (
     <nav
       aria-label="Portfolio navigation"
@@ -20,10 +30,23 @@ export function FixedNavigation() {
         {navigation.map((item, index) => (
           <li key={item.href}>
             <a
-              className="group flex items-center gap-3 text-[0.58rem] uppercase tracking-editorial text-graphite transition-colors hover:text-ink focus-visible:text-ink"
+              aria-current={activeId === item.id ? "page" : undefined}
+              className={`group relative flex items-center gap-3 text-[0.58rem] uppercase tracking-editorial transition-colors hover:text-ink focus-visible:text-ink ${
+                activeId === item.id ? "text-ink" : "text-graphite"
+              }`}
               href={item.href}
             >
-              <span className="font-mono text-ink/45 transition-colors group-hover:text-ink">
+              <span
+                className={`absolute -left-4 h-px bg-ink transition-all duration-300 ${
+                  activeId === item.id ? "w-5" : "w-0"
+                }`}
+                aria-hidden="true"
+              />
+              <span
+                className={`font-mono transition-colors group-hover:text-ink ${
+                  activeId === item.id ? "text-ink" : "text-ink/45"
+                }`}
+              >
                 {String(index + 1).padStart(2, "0")}
               </span>
               {item.label}

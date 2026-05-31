@@ -1,15 +1,6 @@
+import { portfolioContents } from "../../data/portfolioData";
 import { Divider } from "../ui/Divider";
 import { SectionLabel } from "../ui/SectionLabel";
-
-const contents = [
-  { number: "01", label: "Profile / About", page: "04" },
-  { number: "02", label: "Curriculum Vitae", page: "06" },
-  { number: "03", label: "Selected Works", page: "08" },
-  { number: "04", label: "Courtyard House", page: "10" },
-  { number: "05", label: "Cultural Ground", page: "12" },
-  { number: "06", label: "Edge Library", page: "14" },
-  { number: "07", label: "Contact", page: "16" },
-];
 
 export function ContentsLeftPage() {
   return (
@@ -40,13 +31,18 @@ export function ContentsRightPage() {
     <div className="flex h-full flex-col">
       <SectionLabel number="I" title="Index" />
       <div className="mt-16">
-        {contents.map((item) => (
+        {portfolioContents.map((item) => (
           <div key={item.number}>
             <div className="grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-3 py-4">
               <span className="font-mono text-[0.58rem] tracking-editorial text-graphite">
                 {item.number}
               </span>
-              <span className="font-display text-2xl">{item.label}</span>
+              <a
+                className="font-display text-2xl transition-opacity hover:opacity-55"
+                href={item.href}
+              >
+                {item.label}
+              </a>
               <span className="font-mono text-[0.58rem] text-graphite">
                 {item.page}
               </span>

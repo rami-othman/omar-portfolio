@@ -40,10 +40,30 @@ export interface Project {
   location: string;
   role: string;
   description: string;
+  conceptStatement: string;
   conceptKeywords: string[];
-  coverImage: string;
-  drawings: string[];
-  renders: string[];
+  designProcessSteps: string[];
+  coverImage: ProjectImageAsset;
+  conceptImages: ProjectImageAsset[];
+  drawings: ProjectImageAsset[];
+  renders: ProjectImageAsset[];
+  credits?: string;
+  notes?: string;
+}
+
+export interface ProjectImageAsset {
+  src: string;
+  caption: string;
+  alt?: string;
+}
+
+export interface PortfolioContentsItem {
+  id: string;
+  number: string;
+  label: string;
+  page: string;
+  href: string;
+  kind: "section" | "project";
 }
 
 export const profile: ProfileInfo = {
@@ -147,10 +167,28 @@ export const projects: Project[] = [
     role: "Concept Design / Visualization",
     description:
       "A contemporary domestic study organized around a shaded interior court. Thickened thresholds, filtered light, and a quiet material palette create a measured transition from city to sanctuary.",
+    conceptStatement:
+      "The proposal begins with a protected interior void. Rooms gather around this quiet center, using shade, framed views, and measured thresholds to soften the movement between shared and private life.",
     conceptKeywords: ["Threshold", "Filtered light", "Inner garden"],
-    coverImage: "",
-    drawings: ["Ground floor plan", "Longitudinal section"],
-    renders: ["Courtyard atmosphere", "Street elevation"],
+    designProcessSteps: [
+      "Read the site as a sequence from street to interior refuge.",
+      "Use the courtyard to organize light, air, and daily circulation.",
+      "Refine openings and material transitions around moments of pause.",
+    ],
+    coverImage: { src: "", caption: "Main view" },
+    conceptImages: [
+      { src: "", caption: "Courtyard massing study" },
+      { src: "", caption: "Threshold sequence" },
+    ],
+    drawings: [
+      { src: "", caption: "Ground floor plan" },
+      { src: "", caption: "Longitudinal section" },
+    ],
+    renders: [
+      { src: "", caption: "Courtyard atmosphere" },
+      { src: "", caption: "Street elevation" },
+    ],
+    credits: "Placeholder credits / Individual study",
   },
   {
     id: "cultural-ground",
@@ -162,10 +200,28 @@ export const projects: Project[] = [
     role: "Academic Project / Individual",
     description:
       "A civic landscape that gathers workshops, exhibition rooms, and public terraces around a sequence of planted voids. The building reads as an extension of the ground rather than an isolated object.",
+    conceptStatement:
+      "The project treats the cultural center as a piece of civic ground. Courtyards, ramps, and terraces form a porous public route that supports informal gathering as much as programmed activity.",
     conceptKeywords: ["Collective space", "Topography", "Repair"],
-    coverImage: "",
-    drawings: ["Site plan", "Programmatic section"],
-    renders: ["Public terrace", "Exhibition hall"],
+    designProcessSteps: [
+      "Map existing movement patterns and potential gathering edges.",
+      "Carve planted voids into a continuous public ground plane.",
+      "Distribute program around shaded paths and shared terraces.",
+    ],
+    coverImage: { src: "", caption: "Main view" },
+    conceptImages: [
+      { src: "", caption: "Public ground diagram" },
+      { src: "", caption: "Courtyard sequence study" },
+    ],
+    drawings: [
+      { src: "", caption: "Site plan" },
+      { src: "", caption: "Programmatic section" },
+    ],
+    renders: [
+      { src: "", caption: "Public terrace" },
+      { src: "", caption: "Exhibition hall" },
+    ],
+    credits: "Placeholder credits / Academic study",
   },
   {
     id: "edge-library",
@@ -177,9 +233,70 @@ export const projects: Project[] = [
     role: "Competition Entry / Team",
     description:
       "A compact library at the meeting point of city and coast. Reading spaces climb through the section as a connected interior promenade, framing changing relationships to water, horizon, and sky.",
+    conceptStatement:
+      "A stepped reading promenade connects the city edge to the horizon. The library is composed as a sequence of rooms and overlooks, allowing the coast to remain present throughout the interior.",
     conceptKeywords: ["Horizon", "Promenade", "Civic room"],
-    coverImage: "",
-    drawings: ["Exploded axonometric", "Cross section"],
-    renders: ["Reading room", "Coastal approach"],
+    designProcessSteps: [
+      "Frame the coastal edge as a changing sequence of views.",
+      "Connect reading rooms through a gradual sectional promenade.",
+      "Shape quiet civic rooms around daylight and orientation.",
+    ],
+    coverImage: { src: "", caption: "Main view" },
+    conceptImages: [
+      { src: "", caption: "Sectional promenade" },
+      { src: "", caption: "Horizon framing study" },
+    ],
+    drawings: [
+      { src: "", caption: "Exploded axonometric" },
+      { src: "", caption: "Cross section" },
+    ],
+    renders: [
+      { src: "", caption: "Reading room" },
+      { src: "", caption: "Coastal approach" },
+    ],
+    credits: "Placeholder credits / Team competition entry",
+  },
+];
+
+export const portfolioContents: PortfolioContentsItem[] = [
+  {
+    id: "profile",
+    number: "01",
+    label: "Profile / About",
+    page: "04",
+    href: "#profile",
+    kind: "section",
+  },
+  {
+    id: "cv",
+    number: "02",
+    label: "Curriculum Vitae",
+    page: "06",
+    href: "#cv",
+    kind: "section",
+  },
+  {
+    id: "works",
+    number: "03",
+    label: "Selected Works",
+    page: "08",
+    href: "#works",
+    kind: "section",
+  },
+  ...projects.map((project, index) => ({
+    id: `project-${project.id}`,
+    number: String(index + 4).padStart(2, "0"),
+    label: project.title,
+    page: String(10 + index * 8).padStart(2, "0"),
+    href: `#project-${project.id}`,
+    kind: "project" as const,
+  })),
+  {
+    id: "contact",
+    number: String(projects.length + 4).padStart(2, "0"),
+    label: "Contact",
+    page: String(10 + projects.length * 8).padStart(2, "0"),
+    href: "#contact",
+    kind: "section",
   },
 ];

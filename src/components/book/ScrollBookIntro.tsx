@@ -6,6 +6,7 @@ import { TableOfContentsSection } from "../sections/TableOfContentsSection";
 import { BookHero } from "./BookHero";
 import { ContentsLeftPage, ContentsRightPage } from "./ContentsPages";
 import { PaperPage } from "./PaperPage";
+import { OPEN_BOOK_SIZE_CLASS } from "./bookLayout";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,7 +42,7 @@ export function ScrollBookIntro() {
               pinSpacing: false,
               scrub: 0.8,
               start: "top top",
-              end: "bottom bottom",
+              end: "bottom top",
               anticipatePin: 1,
               invalidateOnRefresh: true,
             },
@@ -126,13 +127,20 @@ export function ScrollBookIntro() {
 
   return (
     <>
+      <span
+        id="cover"
+        className="pointer-events-none absolute left-0 top-0 scroll-mt-8"
+      />
+      <span
+        id="contents"
+        className="pointer-events-none absolute left-0 top-[100vh] scroll-mt-8 lg:top-[170vh]"
+      />
       <div className="lg:hidden">
         <CoverSection id="mobile-cover" />
         <TableOfContentsSection id="mobile-contents" />
       </div>
 
       <section
-        id="cover"
         ref={introRef}
         className="scroll-book-intro relative hidden h-[270vh] scroll-mt-8 lg:block"
       >
@@ -157,14 +165,13 @@ export function ScrollBookIntro() {
           </div>
 
           <div
-            id="contents"
             ref={openSpreadRef}
-            className="book-spread scroll-book-open-spread invisible absolute z-10 grid w-[min(86rem,calc(100vw-8rem))] grid-cols-2 overflow-hidden border border-ink/10 shadow-page"
+            className={`book-open-frame book-spread scroll-book-open-spread invisible absolute z-10 grid grid-cols-2 overflow-hidden border border-ink/10 shadow-page ${OPEN_BOOK_SIZE_CLASS}`}
           >
-            <PaperPage side="left">
+            <PaperPage side="left" className="h-full">
               <ContentsLeftPage />
             </PaperPage>
-            <PaperPage side="right">
+            <PaperPage side="right" className="h-full">
               <ContentsRightPage />
             </PaperPage>
           </div>

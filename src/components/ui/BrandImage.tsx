@@ -1,21 +1,22 @@
 import { useState } from "react";
 
 interface BrandImageProps {
-  src: string;
+  sources: string[];
   alt: string;
   fallback: string;
   className?: string;
 }
 
 export function BrandImage({
-  src,
+  sources,
   alt,
   fallback,
   className = "",
 }: BrandImageProps) {
-  const [failed, setFailed] = useState(false);
+  const [sourceIndex, setSourceIndex] = useState(0);
+  const source = sources[sourceIndex];
 
-  if (failed) {
+  if (!source) {
     return (
       <span className={`font-display tracking-[0.16em] ${className}`}>
         {fallback}
@@ -26,9 +27,9 @@ export function BrandImage({
   return (
     <img
       className={`object-contain ${className}`}
-      src={src}
+      src={source}
       alt={alt}
-      onError={() => setFailed(true)}
+      onError={() => setSourceIndex((index) => index + 1)}
     />
   );
 }
