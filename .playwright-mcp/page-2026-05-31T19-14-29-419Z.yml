@@ -1,0 +1,332 @@
+- main [ref=e5]:
+  - generic [ref=e6]:
+    - generic [ref=e13]:
+      - generic [ref=e14]:
+        - paragraph [ref=e15]:
+          - text: Selected work
+          - text: 2023-2026
+        - paragraph [ref=e16]: Vol. 01
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: Architecture portfolio
+        - text: OMAR
+        - paragraph [ref=e19]:
+          - text: Notes on space,
+          - text: material, and place.
+      - generic [ref=e20]:
+        - paragraph [ref=e21]:
+          - text: Architectural
+          - text: designer
+        - generic [ref=e22]: "01"
+    - generic [ref=e24]:
+      - generic [ref=e26]:
+        - generic [ref=e27]:
+          - generic [ref=e28]: "00"
+          - generic [ref=e30]: Contents
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: Portfolio index
+          - heading "A quiet collection of work." [level=2] [ref=e33]:
+            - text: A quiet
+            - text: collection
+            - text: of work.
+        - paragraph [ref=e34]: A digital notebook of selected projects, studies, and architectural observations.
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]: I
+          - generic [ref=e40]: Index
+        - generic [ref=e41]:
+          - generic [ref=e43]:
+            - generic [ref=e44]: "01"
+            - generic [ref=e45]: Profile / About
+            - generic [ref=e46]: "04"
+          - generic [ref=e49]:
+            - generic [ref=e50]: "02"
+            - generic [ref=e51]: Curriculum Vitae
+            - generic [ref=e52]: "06"
+          - generic [ref=e55]:
+            - generic [ref=e56]: "03"
+            - generic [ref=e57]: Selected Works
+            - generic [ref=e58]: "08"
+          - generic [ref=e61]:
+            - generic [ref=e62]: "04"
+            - generic [ref=e63]: Courtyard House
+            - generic [ref=e64]: "10"
+          - generic [ref=e67]:
+            - generic [ref=e68]: "05"
+            - generic [ref=e69]: Cultural Ground
+            - generic [ref=e70]: "12"
+          - generic [ref=e73]:
+            - generic [ref=e74]: "06"
+            - generic [ref=e75]: Edge Library
+            - generic [ref=e76]: "14"
+          - generic [ref=e79]:
+            - generic [ref=e80]: "07"
+            - generic [ref=e81]: Contact
+            - generic [ref=e82]: "16"
+        - paragraph [ref=e84]: Omar / Architecture Portfolio
+  - generic [ref=e86]:
+    - generic [ref=e88]:
+      - generic [ref=e89]:
+        - generic [ref=e90]: "01"
+        - generic [ref=e92]: Profile
+      - generic [ref=e97]:
+        - generic [ref=e98]: Replace with Omar's portrait
+        - generic [ref=e99]: Portrait / studio image
+      - generic [ref=e100]:
+        - generic [ref=e101]: Damascus, Syria
+        - generic [ref=e102]: Fig. 01
+    - generic [ref=e104]:
+      - generic [ref=e105]:
+        - generic [ref=e106]: "01"
+        - generic [ref=e108]: About
+      - paragraph [ref=e109]: Architecture shaped by context, restraint, and the life between walls.
+      - generic [ref=e111]:
+        - paragraph [ref=e112]: "Omar is an architectural designer interested in spaces that feel inevitable: grounded in their setting, attentive to material, and generous in how they are inhabited."
+        - paragraph [ref=e113]: His work moves between research, representation, and built form. Each project begins with a precise reading of place and develops through plans, sections, models, and atmosphere.
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - paragraph [ref=e116]: Core practice
+          - list [ref=e117]:
+            - listitem [ref=e118]: Architectural Concept Design
+            - listitem [ref=e119]: Spatial Planning
+            - listitem [ref=e120]: Design Development
+            - listitem [ref=e121]: Architectural Representation
+            - listitem [ref=e122]: Physical Modeling
+            - listitem [ref=e123]: Research & Analysis
+        - generic [ref=e124]:
+          - paragraph [ref=e125]: Software
+          - list [ref=e126]:
+            - listitem [ref=e127]: AutoCAD
+            - listitem [ref=e128]: Revit
+            - listitem [ref=e129]: SketchUp
+            - listitem [ref=e130]: Rhino
+            - listitem [ref=e131]: Lumion
+            - listitem [ref=e132]: Adobe Photoshop
+            - listitem [ref=e133]: Adobe InDesign
+  - generic [ref=e135]:
+    - generic [ref=e137]:
+      - generic [ref=e138]:
+        - generic [ref=e139]: "02"
+        - generic [ref=e141]: Curriculum Vitae
+      - paragraph [ref=e143]:
+        - text: Omar
+        - text: architectural
+        - text: designer
+      - generic [ref=e146]:
+        - generic [ref=e147]:
+          - term [ref=e148]: Base
+          - definition [ref=e149]: Damascus, Syria
+        - generic [ref=e150]:
+          - term [ref=e151]: Status
+          - definition [ref=e152]: Available for selected collaborations
+    - generic [ref=e154]:
+      - generic [ref=e155]:
+        - paragraph [ref=e156]: Experience
+        - generic [ref=e158]:
+          - article [ref=e159]:
+            - paragraph [ref=e160]: 2024-Present
+            - heading "Junior Architect" [level=3] [ref=e161]
+            - paragraph [ref=e162]: Architecture Studio / City, Country
+            - paragraph [ref=e163]: Concept design, visual communication, and project development
+          - article [ref=e164]:
+            - paragraph [ref=e165]: 2023-2024
+            - heading "Architectural Intern" [level=3] [ref=e166]
+            - paragraph [ref=e167]: Design Practice / City, Country
+            - paragraph [ref=e168]: Research, drafting, modeling, and competition support
+      - generic [ref=e169]:
+        - paragraph [ref=e170]: Education
+        - generic [ref=e172]:
+          - article [ref=e173]:
+            - paragraph [ref=e174]: 2019-2024
+            - heading "Bachelor of Architecture" [level=3] [ref=e175]
+            - paragraph [ref=e176]: University Name / City, Country
+            - paragraph [ref=e177]: Graduation project with distinction
+          - article [ref=e178]:
+            - paragraph [ref=e179]: "2023"
+            - heading "Urban Research Workshop" [level=3] [ref=e180]
+            - paragraph [ref=e181]: Studio / Institution / City, Country
+      - generic [ref=e182]:
+        - paragraph [ref=e183]: Recognition
+        - generic [ref=e185]:
+          - article [ref=e186]:
+            - paragraph [ref=e187]: "2024"
+            - heading "Graduation Project Nomination" [level=3] [ref=e188]
+            - paragraph [ref=e189]: Annual Architecture Exhibition / City, Country
+          - article [ref=e190]:
+            - paragraph [ref=e191]: "2023"
+            - heading "Selected Student Work" [level=3] [ref=e192]
+            - paragraph [ref=e193]: Faculty Review / City, Country
+  - generic [ref=e195]:
+    - generic [ref=e197]:
+      - generic [ref=e198]:
+        - generic [ref=e199]: "03"
+        - generic [ref=e201]: Selected Works
+      - heading "Three studies in place." [level=2] [ref=e202]:
+        - text: Three
+        - text: studies
+        - text: in place.
+      - paragraph [ref=e203]: Selected works across domestic, cultural, and civic scales. Each project is introduced as an editorial spread ready for drawings, renders, and process documentation.
+    - generic [ref=e205]:
+      - generic [ref=e206]:
+        - generic [ref=e207]: III
+        - generic [ref=e209]: Works Index
+      - generic [ref=e210]:
+        - link "01 Courtyard House Residential / Damascus, Syria 2024" [ref=e211] [cursor=pointer]:
+          - /url: "#project-courtyard-house"
+          - generic [ref=e212]:
+            - generic [ref=e213]: "01"
+            - generic [ref=e214]:
+              - heading "Courtyard House" [level=3] [ref=e215]
+              - paragraph [ref=e216]: Residential / Damascus, Syria
+            - generic [ref=e217]: "2024"
+        - link "02 Cultural Ground Cultural Center / Aleppo, Syria 2023" [ref=e219] [cursor=pointer]:
+          - /url: "#project-cultural-ground"
+          - generic [ref=e220]:
+            - generic [ref=e221]: "02"
+            - generic [ref=e222]:
+              - heading "Cultural Ground" [level=3] [ref=e223]
+              - paragraph [ref=e224]: Cultural Center / Aleppo, Syria
+            - generic [ref=e225]: "2023"
+        - link "03 Edge Library Public Library / Latakia, Syria 2023" [ref=e227] [cursor=pointer]:
+          - /url: "#project-edge-library"
+          - generic [ref=e228]:
+            - generic [ref=e229]: "03"
+            - generic [ref=e230]:
+              - heading "Edge Library" [level=3] [ref=e231]
+              - paragraph [ref=e232]: Public Library / Latakia, Syria
+            - generic [ref=e233]: "2023"
+      - generic [ref=e239]:
+        - generic [ref=e240]: Works index image
+        - generic [ref=e241]: Material study
+  - generic [ref=e243]:
+    - generic [ref=e245]:
+      - generic [ref=e246]:
+        - generic [ref=e247]: "01"
+        - generic [ref=e249]: Selected Project
+      - generic [ref=e250]:
+        - paragraph [ref=e251]: Residential / 2024
+        - heading "Courtyard House" [level=2] [ref=e252]
+      - generic [ref=e257]:
+        - generic [ref=e258]: Courtyard House / hero image
+        - generic [ref=e259]: Project cover
+      - paragraph [ref=e260]: Fig. 01.01 / Main view
+    - generic [ref=e262]:
+      - generic [ref=e263]:
+        - generic [ref=e264]:
+          - generic [ref=e265]:
+            - term [ref=e266]: Location
+            - definition [ref=e267]: Damascus, Syria
+          - generic [ref=e268]:
+            - term [ref=e269]: Role
+            - definition [ref=e270]: Concept Design / Visualization
+        - paragraph [ref=e271]: A contemporary domestic study organized around a shaded interior court. Thickened thresholds, filtered light, and a quiet material palette create a measured transition from city to sanctuary.
+      - generic [ref=e273]:
+        - generic [ref=e278]:
+          - generic [ref=e279]: Technical drawing
+          - generic [ref=e280]: Ground floor plan
+        - generic [ref=e285]:
+          - generic [ref=e286]: Atmospheric render
+          - generic [ref=e287]: Courtyard atmosphere
+      - generic [ref=e288]:
+        - paragraph [ref=e289]: Concept vocabulary
+        - generic [ref=e290]:
+          - generic [ref=e291]: Threshold
+          - generic [ref=e292]: Filtered light
+          - generic [ref=e293]: Inner garden
+  - generic [ref=e295]:
+    - generic [ref=e297]:
+      - generic [ref=e298]:
+        - generic [ref=e299]: "02"
+        - generic [ref=e301]: Selected Project
+      - generic [ref=e302]:
+        - paragraph [ref=e303]: Cultural Center / 2023
+        - heading "Cultural Ground" [level=2] [ref=e304]
+      - generic [ref=e309]:
+        - generic [ref=e310]: Cultural Ground / hero image
+        - generic [ref=e311]: Project cover
+      - paragraph [ref=e312]: Fig. 02.01 / Main view
+    - generic [ref=e314]:
+      - generic [ref=e315]:
+        - generic [ref=e316]:
+          - generic [ref=e317]:
+            - term [ref=e318]: Location
+            - definition [ref=e319]: Aleppo, Syria
+          - generic [ref=e320]:
+            - term [ref=e321]: Role
+            - definition [ref=e322]: Academic Project / Individual
+        - paragraph [ref=e323]: A civic landscape that gathers workshops, exhibition rooms, and public terraces around a sequence of planted voids. The building reads as an extension of the ground rather than an isolated object.
+      - generic [ref=e325]:
+        - generic [ref=e330]:
+          - generic [ref=e331]: Technical drawing
+          - generic [ref=e332]: Site plan
+        - generic [ref=e337]:
+          - generic [ref=e338]: Atmospheric render
+          - generic [ref=e339]: Public terrace
+      - generic [ref=e340]:
+        - paragraph [ref=e341]: Concept vocabulary
+        - generic [ref=e342]:
+          - generic [ref=e343]: Collective space
+          - generic [ref=e344]: Topography
+          - generic [ref=e345]: Repair
+  - generic [ref=e347]:
+    - generic [ref=e349]:
+      - generic [ref=e350]:
+        - generic [ref=e351]: "03"
+        - generic [ref=e353]: Selected Project
+      - generic [ref=e354]:
+        - paragraph [ref=e355]: Public Library / 2023
+        - heading "Edge Library" [level=2] [ref=e356]
+      - generic [ref=e361]:
+        - generic [ref=e362]: Edge Library / hero image
+        - generic [ref=e363]: Project cover
+      - paragraph [ref=e364]: Fig. 03.01 / Main view
+    - generic [ref=e366]:
+      - generic [ref=e367]:
+        - generic [ref=e368]:
+          - generic [ref=e369]:
+            - term [ref=e370]: Location
+            - definition [ref=e371]: Latakia, Syria
+          - generic [ref=e372]:
+            - term [ref=e373]: Role
+            - definition [ref=e374]: Competition Entry / Team
+        - paragraph [ref=e375]: A compact library at the meeting point of city and coast. Reading spaces climb through the section as a connected interior promenade, framing changing relationships to water, horizon, and sky.
+      - generic [ref=e377]:
+        - generic [ref=e382]:
+          - generic [ref=e383]: Technical drawing
+          - generic [ref=e384]: Exploded axonometric
+        - generic [ref=e389]:
+          - generic [ref=e390]: Atmospheric render
+          - generic [ref=e391]: Reading room
+      - generic [ref=e392]:
+        - paragraph [ref=e393]: Concept vocabulary
+        - generic [ref=e394]:
+          - generic [ref=e395]: Horizon
+          - generic [ref=e396]: Promenade
+          - generic [ref=e397]: Civic room
+  - generic [ref=e399]:
+    - generic [ref=e401]:
+      - generic [ref=e402]:
+        - generic [ref=e403]: "07"
+        - generic [ref=e405]: Contact
+      - paragraph [ref=e407]:
+        - text: Let us make
+        - text: something
+        - text: considered.
+      - paragraph [ref=e408]: For collaborations, commissions, and architectural conversations.
+    - generic [ref=e410]:
+      - generic [ref=e412]: O.
+      - generic [ref=e413]:
+        - paragraph [ref=e414]: Direct correspondence
+        - link "omar.architecture@example.com" [ref=e415] [cursor=pointer]:
+          - /url: mailto:omar.architecture@example.com
+        - generic [ref=e417]:
+          - generic [ref=e418]:
+            - paragraph [ref=e419]: +963 000 000 000
+            - paragraph [ref=e420]: Damascus, Syria
+          - generic [ref=e421]:
+            - link "Behance" [ref=e422] [cursor=pointer]:
+              - /url: https://www.behance.net/
+            - link "LinkedIn" [ref=e423] [cursor=pointer]:
+              - /url: https://www.linkedin.com/
+            - link "Instagram" [ref=e424] [cursor=pointer]:
+              - /url: https://www.instagram.com/
+      - paragraph [ref=e425]: End / Volume 01
