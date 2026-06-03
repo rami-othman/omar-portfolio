@@ -1,20 +1,26 @@
-import { projects } from "../../data/portfolioData";
-import { ContactSection } from "./ContactSection";
-import { CVSection } from "./CVSection";
-import { ProfileSection } from "./ProfileSection";
-import { ProjectSection } from "./ProjectSection";
-import { SelectedWorksSection } from "./SelectedWorksSection";
+import { useEffect } from "react";
+import { About } from "./About";
+import { Contact } from "./Contact";
+import { Hero } from "./Hero";
+import { ProjectGrid } from "./ProjectGrid";
 
 export function PortfolioSections() {
+  useEffect(() => {
+    document.title = "Omar — Architecture Portfolio";
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute(
+        "content",
+        "Black and white architecture and interior visualization portfolio for Omar, focused on material, atmosphere, and spatial clarity.",
+      );
+  }, []);
+
   return (
-    <>
-      <ProfileSection />
-      <CVSection />
-      <SelectedWorksSection />
-      {projects.map((project) => (
-        <ProjectSection key={project.id} project={project} />
-      ))}
-      <ContactSection />
-    </>
+    <main>
+      <Hero />
+      <ProjectGrid />
+      <About />
+      <Contact />
+    </main>
   );
 }

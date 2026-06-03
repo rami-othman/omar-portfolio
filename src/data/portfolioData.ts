@@ -7,20 +7,6 @@ export interface ProfileInfo {
   availability: string;
 }
 
-export interface CVEntry {
-  period: string;
-  title: string;
-  organization: string;
-  location: string;
-  detail?: string;
-}
-
-export interface CVInfo {
-  education: CVEntry[];
-  experience: CVEntry[];
-  recognition: CVEntry[];
-}
-
 export interface ContactInfo {
   email: string;
   phone: string;
@@ -44,6 +30,8 @@ export interface Project {
   conceptKeywords: string[];
   designProcessSteps: string[];
   coverImage: ProjectImageAsset;
+  coverOrientation: "landscape" | "portrait";
+  coverObjectPosition?: string;
   conceptImages: ProjectImageAsset[];
   drawings: ProjectImageAsset[];
   renders: ProjectImageAsset[];
@@ -55,75 +43,23 @@ export interface ProjectImageAsset {
   src: string;
   caption: string;
   alt?: string;
+  orientation?: "landscape" | "portrait" | "square";
+  layout?: "full" | "half";
 }
 
-export interface PortfolioContentsItem {
-  id: string;
-  number: string;
-  label: string;
-  page: string;
-  href: string;
-  kind: "section" | "project";
-}
+export type ProjectGalleryKey = "renders" | "drawings" | "conceptImages";
 
 export const profile: ProfileInfo = {
   name: "Omar",
-  title: "Architectural Designer",
-  statement: "Architecture shaped by context, restraint, and the life between walls.",
+  title: "Architecture Engineer",
+  statement:
+    "Interior architecture and visualization shaped by atmosphere, material clarity, and precise spatial composition.",
   biography: [
-    "Omar is an architectural designer interested in spaces that feel inevitable: grounded in their setting, attentive to material, and generous in how they are inhabited.",
-    "His work moves between research, representation, and built form. Each project begins with a precise reading of place and develops through plans, sections, models, and atmosphere.",
+    "Omar is an architecture engineer focused on interior concepts, visual atmosphere, and spaces that feel composed, practical, and carefully detailed.",
+    "His work moves between concept development, technical understanding, and visualization. Each study develops through material choices, lighting, proportion, and clear spatial storytelling.",
   ],
   location: "Damascus, Syria",
   availability: "Available for selected collaborations",
-};
-
-export const cv: CVInfo = {
-  education: [
-    {
-      period: "2019-2024",
-      title: "Bachelor of Architecture",
-      organization: "University Name",
-      location: "City, Country",
-      detail: "Graduation project with distinction",
-    },
-    {
-      period: "2023",
-      title: "Urban Research Workshop",
-      organization: "Studio / Institution",
-      location: "City, Country",
-    },
-  ],
-  experience: [
-    {
-      period: "2024-Present",
-      title: "Junior Architect",
-      organization: "Architecture Studio",
-      location: "City, Country",
-      detail: "Concept design, visual communication, and project development",
-    },
-    {
-      period: "2023-2024",
-      title: "Architectural Intern",
-      organization: "Design Practice",
-      location: "City, Country",
-      detail: "Research, drafting, modeling, and competition support",
-    },
-  ],
-  recognition: [
-    {
-      period: "2024",
-      title: "Graduation Project Nomination",
-      organization: "Annual Architecture Exhibition",
-      location: "City, Country",
-    },
-    {
-      period: "2023",
-      title: "Selected Student Work",
-      organization: "Faculty Review",
-      location: "City, Country",
-    },
-  ],
 };
 
 export const skills = [
@@ -158,145 +94,123 @@ export const contact: ContactInfo = {
 
 export const projects: Project[] = [
   {
-    id: "courtyard-house",
+    id: "kitchen-interior",
     number: "01",
-    title: "Courtyard House",
+    title: "Kitchen Interior Study",
     year: "2024",
-    type: "Residential",
+    type: "Interior Design",
     location: "Damascus, Syria",
-    role: "Concept Design / Visualization",
+    role: "Interior Concept / Visualization",
     description:
-      "A contemporary domestic study organized around a shaded interior court. Thickened thresholds, filtered light, and a quiet material palette create a measured transition from city to sanctuary.",
+      "A residential kitchen study with a warm material palette, wood cabinetry, concealed lighting, and compact spatial planning shaped for a refined daily-use interior.",
     conceptStatement:
-      "The proposal begins with a protected interior void. Rooms gather around this quiet center, using shade, framed views, and measured thresholds to soften the movement between shared and private life.",
-    conceptKeywords: ["Threshold", "Filtered light", "Inner garden"],
+      "The study balances practical circulation with a calm visual rhythm, using warm wood, integrated lighting, and clean storage lines to make a compact kitchen feel composed and generous.",
+    conceptKeywords: ["Wood", "Concealed light", "Compact plan"],
     designProcessSteps: [
-      "Read the site as a sequence from street to interior refuge.",
-      "Use the courtyard to organize light, air, and daily circulation.",
-      "Refine openings and material transitions around moments of pause.",
+      "Organize storage, preparation, and movement into a clear residential workflow.",
+      "Use warm cabinetry and quiet surfaces to create visual continuity.",
+      "Refine lighting positions to support both function and atmosphere.",
     ],
-    coverImage: { src: "", caption: "Main view" },
-    conceptImages: [
-      { src: "", caption: "Courtyard massing study" },
-      { src: "", caption: "Threshold sequence" },
-    ],
-    drawings: [
-      { src: "", caption: "Ground floor plan" },
-      { src: "", caption: "Longitudinal section" },
-    ],
-    renders: [
-      { src: "", caption: "Courtyard atmosphere" },
-      { src: "", caption: "Street elevation" },
-    ],
-    credits: "Placeholder credits / Individual study",
+    coverImage: {
+      src: "/projects/kitchen-interior/cover.png",
+      caption: "Kitchen interior render",
+      alt: "Warm residential kitchen interior with wood cabinetry and concealed lighting",
+      orientation: "landscape",
+      layout: "full",
+    },
+    coverOrientation: "landscape",
+    coverObjectPosition: "50% 54%",
+    // Add future assets here, for example:
+    // renders: [{ src: "/projects/kitchen-interior/render-01.png", caption: "...", orientation: "landscape", layout: "full" }]
+    conceptImages: [],
+    drawings: [],
+    renders: [],
+    credits: "Interior study / Visualization",
   },
   {
-    id: "cultural-ground",
+    id: "bathroom-interior",
     number: "02",
-    title: "Cultural Ground",
-    year: "2023",
-    type: "Cultural Center",
-    location: "Aleppo, Syria",
-    role: "Academic Project / Individual",
+    title: "Bathroom Interior Study",
+    year: "2024",
+    type: "Interior Visualization",
+    location: "Damascus, Syria",
+    role: "Material Study / Visualization",
     description:
-      "A civic landscape that gathers workshops, exhibition rooms, and public terraces around a sequence of planted voids. The building reads as an extension of the ground rather than an isolated object.",
+      "A luxury bathroom visualization focused on stone surfaces, warm lighting, custom mirrors, and a quiet material atmosphere with high-end residential character.",
     conceptStatement:
-      "The project treats the cultural center as a piece of civic ground. Courtyards, ramps, and terraces form a porous public route that supports informal gathering as much as programmed activity.",
-    conceptKeywords: ["Collective space", "Topography", "Repair"],
+      "The composition uses reflective surfaces, soft illumination, and a restrained stone palette to create a bathroom atmosphere that feels calm, precise, and tactile.",
+    conceptKeywords: ["Stone", "Mirror", "Warm light"],
     designProcessSteps: [
-      "Map existing movement patterns and potential gathering edges.",
-      "Carve planted voids into a continuous public ground plane.",
-      "Distribute program around shaded paths and shared terraces.",
+      "Set a balanced vanity composition around mirror, basin, and light.",
+      "Develop a material palette with stone texture and warm highlights.",
+      "Frame the render to emphasize depth, reflection, and surface quality.",
     ],
-    coverImage: { src: "", caption: "Main view" },
-    conceptImages: [
-      { src: "", caption: "Public ground diagram" },
-      { src: "", caption: "Courtyard sequence study" },
-    ],
-    drawings: [
-      { src: "", caption: "Site plan" },
-      { src: "", caption: "Programmatic section" },
-    ],
-    renders: [
-      { src: "", caption: "Public terrace" },
-      { src: "", caption: "Exhibition hall" },
-    ],
-    credits: "Placeholder credits / Academic study",
+    coverImage: {
+      src: "/projects/bathroom-interior/cover.png",
+      caption: "Bathroom interior render",
+      alt: "Luxury bathroom interior visualization with stone surfaces and warm lighting",
+      orientation: "portrait",
+      layout: "full",
+    },
+    coverOrientation: "portrait",
+    coverObjectPosition: "52% 42%",
+    // Add future assets here, for example:
+    // drawings: [{ src: "/projects/bathroom-interior/plan-01.png", caption: "...", orientation: "landscape", layout: "full" }]
+    conceptImages: [],
+    drawings: [],
+    renders: [],
+    credits: "Interior study / Visualization",
   },
   {
-    id: "edge-library",
+    id: "dining-interior",
     number: "03",
-    title: "Edge Library",
-    year: "2023",
-    type: "Public Library",
-    location: "Latakia, Syria",
-    role: "Competition Entry / Team",
+    title: "Dining Interior Study",
+    year: "2024",
+    type: "Interior Architecture",
+    location: "Damascus, Syria",
+    role: "Interior Concept / Visualization",
     description:
-      "A compact library at the meeting point of city and coast. Reading spaces climb through the section as a connected interior promenade, framing changing relationships to water, horizon, and sky.",
+      "A refined dining room study organized around symmetry, layered lighting, wall treatments, display shelving, and a polished high-end interior composition.",
     conceptStatement:
-      "A stepped reading promenade connects the city edge to the horizon. The library is composed as a sequence of rooms and overlooks, allowing the coast to remain present throughout the interior.",
-    conceptKeywords: ["Horizon", "Promenade", "Civic room"],
+      "The dining space is composed as a formal interior scene, using lighting, shelving, and wall articulation to create a balanced atmosphere for gathering.",
+    conceptKeywords: ["Symmetry", "Display", "Dining"],
     designProcessSteps: [
-      "Frame the coastal edge as a changing sequence of views.",
-      "Connect reading rooms through a gradual sectional promenade.",
-      "Shape quiet civic rooms around daylight and orientation.",
+      "Build the room around a centered dining composition and clear sightlines.",
+      "Use wall treatments and shelving to create depth behind the table.",
+      "Layer ceiling and accent lighting to support a refined evening atmosphere.",
     ],
-    coverImage: { src: "", caption: "Main view" },
-    conceptImages: [
-      { src: "", caption: "Sectional promenade" },
-      { src: "", caption: "Horizon framing study" },
-    ],
-    drawings: [
-      { src: "", caption: "Exploded axonometric" },
-      { src: "", caption: "Cross section" },
-    ],
-    renders: [
-      { src: "", caption: "Reading room" },
-      { src: "", caption: "Coastal approach" },
-    ],
-    credits: "Placeholder credits / Team competition entry",
+    coverImage: {
+      src: "/projects/dining-interior/cover.png",
+      caption: "Dining interior render",
+      alt: "Refined dining room interior with lighting, display shelving, and wall treatments",
+      orientation: "landscape",
+      layout: "full",
+    },
+    coverOrientation: "landscape",
+    coverObjectPosition: "50% 50%",
+    // Add future assets here, for example:
+    // conceptImages: [{ src: "/projects/dining-interior/detail-01.png", caption: "...", orientation: "square", layout: "half" }]
+    conceptImages: [],
+    drawings: [],
+    renders: [],
+    credits: "Interior study / Visualization",
   },
 ];
 
-export const portfolioContents: PortfolioContentsItem[] = [
-  {
-    id: "profile",
-    number: "01",
-    label: "Profile / About",
-    page: "04",
-    href: "#profile",
-    kind: "section",
-  },
-  {
-    id: "cv",
-    number: "02",
-    label: "Curriculum Vitae",
-    page: "06",
-    href: "#cv",
-    kind: "section",
-  },
-  {
-    id: "works",
-    number: "03",
-    label: "Selected Works",
-    page: "08",
-    href: "#works",
-    kind: "section",
-  },
-  ...projects.map((project, index) => ({
-    id: `project-${project.id}`,
-    number: String(index + 4).padStart(2, "0"),
-    label: project.title,
-    page: String(10 + index * 8).padStart(2, "0"),
-    href: `#project-${project.id}`,
-    kind: "project" as const,
-  })),
-  {
-    id: "contact",
-    number: String(projects.length + 4).padStart(2, "0"),
-    label: "Contact",
-    page: String(10 + projects.length * 8).padStart(2, "0"),
-    href: "#contact",
-    kind: "section",
-  },
-];
+export function getProjectById(projectId: string | undefined) {
+  return projects.find((project) => project.id === projectId);
+}
+
+export function getAdjacentProjects(projectId: string) {
+  const currentIndex = projects.findIndex((project) => project.id === projectId);
+
+  if (currentIndex < 0) {
+    return { previousProject: undefined, nextProject: undefined };
+  }
+
+  return {
+    previousProject:
+      projects[(currentIndex - 1 + projects.length) % projects.length],
+    nextProject: projects[(currentIndex + 1) % projects.length],
+  };
+}

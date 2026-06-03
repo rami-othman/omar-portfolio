@@ -1,136 +1,215 @@
 # Omar Architecture Portfolio
 
-A premium architecture portfolio foundation for Omar, designed as a digital
-editorial notebook rather than a conventional landing page. The current version
-opens with a closed book cover and continues through responsive portfolio
-spreads with restrained motion, paper texture, and placeholder content.
+A clean black and white architecture portfolio for Omar. The site is built as a
+simple one-page portfolio with a premium studio feel: precise linework, generous
+spacing, quiet typography, and project covers that can use real imagery when it
+is ready.
 
 ## Tech Stack
 
-- React + Vite
+- React
+- Vite
 - TypeScript
 - Tailwind CSS
-- Framer Motion
-- GSAP with ScrollTrigger for the pinned intro and desktop page turns
 
-## Install And Run
+## Run Locally
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
-Create a production build with:
+Create a production build:
 
 ```bash
 npm run build
 ```
 
-## Structure
+Run lint:
+
+```bash
+npm run lint
+```
+
+## Project Structure
 
 ```text
 src/
   app/              Main app composition
   components/
-    book/           Reusable book, spread, and paper primitives
-    layout/         Fixed navigation, scroll progress, and site frame
-    sections/       Portfolio sections rendered in reading order
-    ui/             Small editorial UI elements and image fallbacks
+    layout/         Site frame
+    sections/       Header, hero, projects, about, and contact sections
+    ui/             Shared brand image helper
   data/             Typed portfolio content
-  styles/           Global paper treatment and Tailwind layers
+  pages/            Project detail routes
+  styles/           Global styles and architectural linework utilities
+
+public/
+  brand/            Logo and name assets
+  projects/         Project image folders
 ```
 
-## Replacing Omar's Real Content
+## Sharing Project Zips
 
-Update `src/data/portfolioData.ts` to replace the placeholder biography, CV,
-skills, contact information, and project content.
+When sharing the project as a zip, exclude generated and local-only folders:
 
-Each project supports:
+```text
+node_modules
+dist
+.git
+.playwright-mcp
+```
 
-- Project metadata and a short description
-- A concept statement and design-process steps
-- Concept keywords
-- Cover image
-- Concept images
-- Drawings
-- Renders
-- Optional credits and notes
+After committing the source you want to share, you can create a clean archive
+with:
 
-The visual placeholders are rendered by
-`src/components/ui/ImagePlaceholder.tsx`. Replace them with real responsive
-images once the project asset paths are ready.
+```bash
+npm run zip:source
+```
 
-### Project Images
+This uses `git archive`, so it includes committed source files only and leaves
+generated folders out.
 
-Each project supports a typed `coverImage`, `drawings[]`, and `renders[]` array
-in `src/data/portfolioData.ts`. Add files under the matching project folder:
+## Brand Assets
+
+The current design prefers the cleaned/deflated brand assets:
+
+```text
+public/brand/logo_deflated.png
+public/brand/name_and_logo_deflated.png
+public/brand/name_deflated.png
+```
+
+The older assets remain available as fallbacks:
+
+```text
+public/brand/omar-logo.png
+public/brand/omar-name-with-logo.png
+public/brand/omar-name.png
+```
+
+## Portfolio Data
+
+Main content lives in:
+
+```text
+src/data/portfolioData.ts
+```
+
+Update this file to edit:
+
+- Profile statement and biography
+- Skills and software
+- Contact details and links
+- Project titles, years, types, descriptions, and image paths
+- Project gallery arrays for renders, drawings, and concept/process images
+
+Placeholder contact values are intentionally rendered as neutral "to be added"
+messages in the UI until real details are entered.
+
+## Routes
+
+The homepage is served at:
+
+```text
+/
+```
+
+Project case-study pages use the project id from `src/data/portfolioData.ts`:
+
+```text
+/projects/kitchen-interior
+/projects/bathroom-interior
+/projects/dining-interior
+```
+
+The site uses `BrowserRouter`, so direct project URLs need an SPA fallback on
+static hosts. Fallback files are included:
+
+```text
+vercel.json         Vercel rewrite to /index.html
+public/_redirects  Netlify redirect to /index.html
+```
+
+## Project Images
+
+Project images should be placed in the matching folder under
+`public/projects/<project-id>/`:
 
 ```text
 public/projects/
-  courtyard-house/
-    cover.jpg
-    concept-01.jpg
-    concept-02.jpg
-    plan-01.jpg
-    section-01.jpg
-    render-01.jpg
-    render-02.jpg
-  cultural-ground/
-  edge-library/
+  kitchen-interior/
+    cover.png
+  bathroom-interior/
+    cover.png
+  dining-interior/
+    cover.png
 ```
 
-Then set each asset's `src` to a public path such as
-`/projects/courtyard-house/cover.jpg`. `ProjectImage.tsx` keeps the layout stable
-and falls back to the editorial placeholder when a path is empty or cannot
-load. Drawings use `object-contain`; covers and renders use `object-cover`.
+Project content is managed in `src/data/portfolioData.ts`.
 
-Recommended preparation:
+Use `coverImage` for the main hero image on the project page. Use the gallery
+arrays for additional assets:
 
-- Use lowercase, simple file names.
-- Export cover images and renders as JPG or WebP, ideally 1800-2400px wide.
-- Export drawings as PNG or JPG with a clean white background, ideally
-  1800-2600px wide.
-- Keep file sizes considered for web delivery.
-- Leave `src` empty while an image is not ready; the placeholder remains stable.
+- `renders`: final or atmospheric render images
+- `drawings`: plans, sections, elevations, and technical sheets
+- `conceptImages`: process, detail, material, or concept studies
 
-## Brand Images
+Then set each project image path in `src/data/portfolioData.ts`, for example:
 
-Add real brand assets to `public/brand/`:
-
-```text
-public/brand/
-  omar-logo.png
-  omar-name.png
-  omar-name-with-logo.png
+```ts
+coverImage: {
+  src: "/projects/kitchen-interior/cover.png",
+  caption: "Main view",
+  alt: "Warm kitchen interior render",
+  orientation: "landscape",
+  layout: "full",
+}
 ```
 
-The interface checks PNG first, supports JPG fallback paths, and displays text
-if neither image is available.
+To add more images later, place the files in the same project folder and add
+them to the relevant array:
 
-## Scroll Intro
+```ts
+renders: [
+  {
+    src: "/projects/kitchen-interior/render-01.png",
+    caption: "Kitchen evening render",
+    alt: "Kitchen interior render with concealed lighting",
+    orientation: "landscape",
+    layout: "full",
+  },
+],
+drawings: [
+  {
+    src: "/projects/kitchen-interior/plan-01.png",
+    caption: "Kitchen plan",
+    alt: "Kitchen interior plan drawing",
+    orientation: "landscape",
+    layout: "full",
+  },
+],
+conceptImages: [
+  {
+    src: "/projects/kitchen-interior/detail-01.png",
+    caption: "Material detail",
+    alt: "Kitchen material detail study",
+    orientation: "square",
+    layout: "half",
+  },
+],
+```
 
-`src/components/book/ScrollBookIntro.tsx` owns the desktop opening sequence.
-GSAP ScrollTrigger pins the cover and opens it into the contents spread across
-`270vh`. Adjust the `h-[270vh]` class on the intro section to make the sequence
-shorter or longer. Tablet and mobile layouts use a simple vertical cover and
-contents flow.
+`orientation` can be `landscape`, `portrait`, or `square`. `layout` can be
+`full` for a wide image or `half` for a two-column gallery item. Do not add paths
+until the matching files exist in `public/projects/<project-id>/`.
 
-## Desktop Book Reader
-
-`src/components/book/BookReaderStage.tsx` renders the post-intro portfolio as a
-single pinned open book on motion-enabled desktop screens. It turns through the
-contents handoff, profile, CV, selected works, project chapters, and contact.
-Each project chapter includes cover, concept, drawings, and renders spreads.
-Change `SCROLL_PER_SPREAD` in that file to adjust the reading pace. Smaller
-screens and reduced-motion preferences render the normal vertical editorial
-flow instead.
-
-The reader status label updates as each spread becomes active. The fixed side
-navigation follows the same anchors and groups all project spreads under the
-Projects entry.
-
-## Next Milestone
-
-Replace placeholders with Omar's real content and imagery, then refine each
-project chapter around its strongest drawings and atmospheres. A later motion
-pass can add a final-book closing sequence after Contact.
+If a project does not have a real image yet, the website renders a deliberate
+black and white typographic cover instead of a missing-image placeholder.

@@ -8,13 +8,13 @@
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "zip:source": "git archive --format=zip --output=omar-architecture-portfolio-source.zip HEAD",
     "typecheck": "tsc -b --pretty false"
   },
   "dependencies": {
-    "framer-motion": "^11.11.17",
-    "gsap": "^3.12.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.16.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
