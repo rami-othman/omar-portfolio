@@ -1,15 +1,22 @@
 import type { ReactNode } from "react";
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
-import type { Project, ProjectImageAsset } from "../data/portfolioData";
+import { DataStatus } from "../components/ui/DataStatus";
+import { usePortfolioData } from "../context/PortfolioDataContext";
 import {
   getAdjacentProjects,
-  getProjectById,
-} from "../data/portfolioData";
+  getProjectBySlug,
+} from "../services/portfolioService";
+import type { Project, ProjectImageAsset } from "../types/portfolio";
 
 export function ProjectDetailPage() {
   const { projectId } = useParams();
-  const project = getProjectById(projectId);
+  const {
+    content: { projects },
+    error,
+    isLoading,
+  } = usePortfolioData();
+  const project = getProjectBySlug(projects, projectId);
 
   useEffect(() => {
     if (!project) {
@@ -23,11 +30,38 @@ export function ProjectDetailPage() {
       ?.setAttribute("content", project.description);
   }, [project]);
 
+  if (!project && isLoading) {
+    return (
+      <main>
+        <section className="architectural-grid relative isolate overflow-hidden border-b border-ink/12 px-4 py-16 sm:px-6 lg:px-10">
+          <div className="mx-auto max-w-7xl">
+            <Link
+              to="/#projects"
+              className="inline-flex border-b border-ink/25 pb-1 font-mono text-[0.62rem] uppercase tracking-editorial text-ink/55 transition hover:border-ink hover:text-ink focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
+            >
+              Back to selected projects
+            </Link>
+            <div className="mt-12 max-w-2xl border-y border-ink/12 py-8">
+              <p className="font-mono text-[0.62rem] uppercase tracking-editorial text-ink/45">
+                Loading project archive
+              </p>
+              <div className="mt-6 h-px w-full bg-ink/12" />
+              <div className="mt-4 h-px w-2/3 bg-ink/12" />
+            </div>
+          </div>
+        </section>
+      </main>
+    );
+  }
+
   if (!project) {
     return <Navigate to="/" replace />;
   }
 
-  const { previousProject, nextProject } = getAdjacentProjects(project.id);
+  const { previousProject, nextProject } = getAdjacentProjects(
+    projects,
+    project.id,
+  );
   const creditsAndNotes = [project.credits, project.notes].filter(
     (item): item is string => Boolean(item),
   );
@@ -46,6 +80,7 @@ export function ProjectDetailPage() {
           >
             Back to selected projects
           </Link>
+          <DataStatus isLoading={isLoading} error={error} />
 
           <div className="mt-10 grid gap-10 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-end">
             <div className="relative z-10">

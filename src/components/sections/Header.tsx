@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { usePortfolioData } from "../../context/PortfolioDataContext";
 import { BrandImage } from "../ui/BrandImage";
 
 const navItems = [
@@ -9,6 +10,10 @@ const navItems = [
 ];
 
 export function Header() {
+  const {
+    content: { profile },
+  } = usePortfolioData();
+
   return (
     <header className="sticky top-0 z-50 border-b border-ink/12 bg-canvas/95 backdrop-blur-sm">
       <div className="mx-auto flex min-h-[4.5rem] max-w-7xl items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-10">
@@ -23,14 +28,14 @@ export function Header() {
             fallback="Omar"
             className="h-12 w-12 shrink-0 sm:h-14 sm:w-14"
           />
-          <span className="hidden min-w-0 sm:block">
-            <span className="block font-display text-2xl font-semibold leading-none tracking-normal text-ink">
-              Omar
+            <span className="hidden min-w-0 sm:block">
+              <span className="block font-display text-2xl font-semibold leading-none tracking-normal text-ink">
+                {profile.name}
+              </span>
+              <span className="mt-1 block font-mono text-[0.58rem] uppercase tracking-editorial text-ink/52">
+                {profile.title}
+              </span>
             </span>
-            <span className="mt-1 block font-mono text-[0.58rem] uppercase tracking-editorial text-ink/52">
-              Architecture Engineer
-            </span>
-          </span>
         </Link>
         <nav aria-label="Primary navigation">
           <ul className="flex items-center gap-3 sm:gap-6">

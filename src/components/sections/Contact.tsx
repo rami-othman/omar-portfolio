@@ -1,11 +1,14 @@
-import { contact } from "../../data/portfolioData";
+import { usePortfolioData } from "../../context/PortfolioDataContext";
 import { BrandImage } from "../ui/BrandImage";
 import { SectionTitle } from "./SectionTitle";
 
-const hasRealEmail = !contact.email.includes("example.com");
-const hasRealPhone = !contact.phone.includes("000 000");
-
 export function Contact() {
+  const {
+    content: { contact, contactIntro, contactTitle },
+  } = usePortfolioData();
+  const hasRealEmail = !contact.email.includes("example.com");
+  const hasRealPhone = !contact.phone.includes("000 000");
+
   return (
     <section
       id="contact"
@@ -15,10 +18,9 @@ export function Contact() {
         <SectionTitle
           number="03"
           eyebrow="Contact"
-          title="Available for selected architecture and visualization work."
+          title={contactTitle}
         >
-          For collaborations, portfolio requests, or project inquiries, send a
-          concise note and project context.
+          {contactIntro}
         </SectionTitle>
 
         <div className="mt-12 grid gap-10 border-t border-ink/15 pt-8 lg:grid-cols-[16rem_minmax(0,1fr)]">

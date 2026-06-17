@@ -1,8 +1,15 @@
-import { projects } from "../../data/portfolioData";
+import { usePortfolioData } from "../../context/PortfolioDataContext";
+import { DataStatus } from "../ui/DataStatus";
 import { ProjectCard } from "./ProjectCard";
 import { SectionTitle } from "./SectionTitle";
 
 export function ProjectGrid() {
+  const {
+    content: { projects },
+    error,
+    isLoading,
+  } = usePortfolioData();
+
   return (
     <section
       id="projects"
@@ -17,6 +24,7 @@ export function ProjectGrid() {
           A concise selection of interior architecture and visualization
           studies, focused on atmosphere, material, and spatial clarity.
         </SectionTitle>
+        <DataStatus isLoading={isLoading} error={error} />
 
         <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project) => (

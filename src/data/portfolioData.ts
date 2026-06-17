@@ -1,53 +1,20 @@
-export interface ProfileInfo {
-  name: string;
-  title: string;
-  statement: string;
-  biography: string[];
-  location: string;
-  availability: string;
-}
+import type {
+  ContactInfo,
+  PortfolioContent,
+  ProfileInfo,
+  Project,
+  ProjectGalleryKey,
+  ProjectImageAsset,
+} from "../types/portfolio";
 
-export interface ContactInfo {
-  email: string;
-  phone: string;
-  city: string;
-  links: Array<{
-    label: string;
-    href: string;
-  }>;
-}
-
-export interface Project {
-  id: string;
-  number: string;
-  title: string;
-  year: string;
-  type: string;
-  location: string;
-  role: string;
-  description: string;
-  conceptStatement: string;
-  conceptKeywords: string[];
-  designProcessSteps: string[];
-  coverImage: ProjectImageAsset;
-  coverOrientation: "landscape" | "portrait";
-  coverObjectPosition?: string;
-  conceptImages: ProjectImageAsset[];
-  drawings: ProjectImageAsset[];
-  renders: ProjectImageAsset[];
-  credits?: string;
-  notes?: string;
-}
-
-export interface ProjectImageAsset {
-  src: string;
-  caption: string;
-  alt?: string;
-  orientation?: "landscape" | "portrait" | "square";
-  layout?: "full" | "half";
-}
-
-export type ProjectGalleryKey = "renders" | "drawings" | "conceptImages";
+export type {
+  ContactInfo,
+  PortfolioContent,
+  ProfileInfo,
+  Project,
+  ProjectGalleryKey,
+  ProjectImageAsset,
+};
 
 export const profile: ProfileInfo = {
   name: "Omar",
@@ -79,6 +46,12 @@ export const software = [
   "Lumion",
   "Adobe Photoshop",
   "Adobe InDesign",
+];
+
+export const approach = [
+  "Research-led concepts",
+  "Clean representation",
+  "Context-aware design",
 ];
 
 export const contact: ContactInfo = {
@@ -214,3 +187,20 @@ export function getAdjacentProjects(projectId: string) {
     nextProject: projects[(currentIndex + 1) % projects.length],
   };
 }
+
+export const fallbackPortfolioContent: PortfolioContent = {
+  profile,
+  contact,
+  skills,
+  software,
+  approach,
+  projects,
+  heroTitle: "Selected Works",
+  heroKicker: "Architecture / Design / Visualization",
+  aboutTitle: "Architecture engineering with a calm, precise point of view.",
+  aboutIntro:
+    "Work shaped through concept, drawing, visualization, and careful spatial development.",
+  contactTitle: "Available for selected architecture and visualization work.",
+  contactIntro:
+    "For collaborations, portfolio requests, or project inquiries, send a concise note and project context.",
+};

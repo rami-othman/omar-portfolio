@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { profile, skills, software } from "../../data/portfolioData";
+import { usePortfolioData } from "../../context/PortfolioDataContext";
 import { SectionTitle } from "./SectionTitle";
 
 const services = [
@@ -10,6 +10,10 @@ const services = [
 ];
 
 export function About() {
+  const {
+    content: { aboutIntro, aboutTitle, approach, profile, skills, software },
+  } = usePortfolioData();
+
   return (
     <section
       id="about"
@@ -19,10 +23,9 @@ export function About() {
         <SectionTitle
           number="02"
           eyebrow="About"
-          title="Architecture engineering with a calm, precise point of view."
+          title={aboutTitle}
         >
-          Work shaped through concept, drawing, visualization, and careful
-          spatial development.
+          {aboutIntro}
         </SectionTitle>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[0.82fr_1.18fr]">
@@ -58,9 +61,9 @@ export function About() {
               ))}
             </InfoBlock>
             <InfoBlock title="Approach">
-              <p>Research-led concepts</p>
-              <p>Clean representation</p>
-              <p>Context-aware design</p>
+              {approach.map((item) => (
+                <p key={item}>{item}</p>
+              ))}
             </InfoBlock>
           </div>
         </div>

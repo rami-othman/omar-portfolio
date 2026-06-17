@@ -1,9 +1,12 @@
-import { profile, projects } from "../../data/portfolioData";
+import { usePortfolioData } from "../../context/PortfolioDataContext";
 import { BrandImage } from "../ui/BrandImage";
 
-const heroProject = projects[0];
-
 export function Hero() {
+  const {
+    content: { heroKicker, heroTitle, profile, projects },
+  } = usePortfolioData();
+  const heroProject = projects[0];
+
   return (
     <section
       id="home"
@@ -34,11 +37,11 @@ export function Hero() {
           </div>
 
           <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[0.94] text-ink sm:text-7xl xl:text-[5.75rem]">
-            Selected Works
+            {heroTitle}
           </h1>
           <div className="mt-6 grid max-w-3xl gap-5 border-t border-ink/15 pt-5 sm:grid-cols-[1fr_1.2fr]">
             <p className="font-mono text-[0.66rem] uppercase tracking-editorial text-ink/55">
-              Architecture / Design / Visualization
+              {heroKicker}
             </p>
             <p className="text-base leading-7 text-ink/68 sm:text-lg">
               {profile.statement}
@@ -46,40 +49,54 @@ export function Hero() {
           </div>
         </div>
 
-        <article
-          className="fade-in-up border border-ink/14 bg-canvas/90 p-5 sm:p-6"
-          style={{ animationDelay: "120ms" }}
-        >
-          <p className="font-mono text-[0.62rem] uppercase tracking-editorial text-ink/45">
-            Featured Study
-          </p>
-          <div className="mt-8">
-            <p className="font-mono text-[0.62rem] uppercase tracking-editorial text-ink/45">
-              {heroProject.number}
-            </p>
-            <h2 className="mt-3 font-display text-4xl font-medium leading-none text-ink sm:text-5xl">
-              {heroProject.title}
-            </h2>
-            <p className="mt-4 font-mono text-[0.62rem] uppercase tracking-editorial text-ink/55">
-              {heroProject.type} / {heroProject.year}
-            </p>
-          </div>
-          <div className="mt-7 border-t border-ink/15 pt-5">
-            <img
-              src={heroProject.coverImage.src}
-              alt={heroProject.coverImage.alt ?? heroProject.title}
-              className="aspect-[4/3] w-full border border-ink/12 object-cover"
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-          <a
-            className="mt-6 inline-flex border-b border-ink pb-1 font-mono text-[0.62rem] uppercase tracking-editorial text-ink transition hover:text-ink/60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
-            href="#projects"
+        {heroProject ? (
+          <article
+            className="fade-in-up border border-ink/14 bg-canvas/90 p-5 sm:p-6"
+            style={{ animationDelay: "120ms" }}
           >
-            View selected projects
-          </a>
-        </article>
+            <p className="font-mono text-[0.62rem] uppercase tracking-editorial text-ink/45">
+              Featured Study
+            </p>
+            <div className="mt-8">
+              <p className="font-mono text-[0.62rem] uppercase tracking-editorial text-ink/45">
+                {heroProject.number}
+              </p>
+              <h2 className="mt-3 font-display text-4xl font-medium leading-none text-ink sm:text-5xl">
+                {heroProject.title}
+              </h2>
+              <p className="mt-4 font-mono text-[0.62rem] uppercase tracking-editorial text-ink/55">
+                {heroProject.type} / {heroProject.year}
+              </p>
+            </div>
+            <div className="mt-7 border-t border-ink/15 pt-5">
+              <img
+                src={heroProject.coverImage.src}
+                alt={heroProject.coverImage.alt ?? heroProject.title}
+                className="aspect-[4/3] w-full border border-ink/12 object-cover"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <a
+              className="mt-6 inline-flex border-b border-ink pb-1 font-mono text-[0.62rem] uppercase tracking-editorial text-ink transition hover:text-ink/60 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-4 focus-visible:outline-ink"
+              href="#projects"
+            >
+              View selected projects
+            </a>
+          </article>
+        ) : (
+          <article
+            className="fade-in-up border border-ink/14 bg-canvas/90 p-5 sm:p-6"
+            style={{ animationDelay: "120ms" }}
+          >
+            <p className="font-mono text-[0.62rem] uppercase tracking-editorial text-ink/45">
+              Featured Study
+            </p>
+            <h2 className="mt-8 font-display text-4xl font-medium leading-none text-ink sm:text-5xl">
+              {heroTitle}
+            </h2>
+          </article>
+        )}
       </div>
     </section>
   );
