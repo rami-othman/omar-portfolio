@@ -1,20 +1,28 @@
-import { projects } from "../../data/portfolioData";
-import { ContactSection } from "./ContactSection";
-import { CVSection } from "./CVSection";
-import { ProfileSection } from "./ProfileSection";
-import { ProjectSection } from "./ProjectSection";
-import { SelectedWorksSection } from "./SelectedWorksSection";
+import { useEffect } from "react";
+import { usePortfolioData } from "../../context/PortfolioDataContext";
+import { About } from "./About";
+import { Contact } from "./Contact";
+import { Hero } from "./Hero";
+import { ProjectGrid } from "./ProjectGrid";
 
 export function PortfolioSections() {
+  const {
+    content: { profile },
+  } = usePortfolioData();
+
+  useEffect(() => {
+    document.title = `${profile.name} - Architecture Portfolio`;
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", profile.statement);
+  }, [profile.name, profile.statement]);
+
   return (
-    <>
-      <ProfileSection />
-      <CVSection />
-      <SelectedWorksSection />
-      {projects.map((project) => (
-        <ProjectSection key={project.id} project={project} />
-      ))}
-      <ContactSection />
-    </>
+    <main>
+      <Hero />
+      <ProjectGrid />
+      <About />
+      <Contact />
+    </main>
   );
 }
